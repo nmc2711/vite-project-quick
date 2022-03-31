@@ -4,8 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import { RouteType } from './types/routeType'
-
 import RouterView from './hooks/useRoute';
 
 import routes from './routes';
@@ -29,20 +27,7 @@ ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <RouterView
-          routes={routes}
-          onEnter={function (to: string, next: (path?: string) => void): void {
-            function checkElementsInArr(element: RouteType) {
-              if (element.path === to) {
-                return true;
-              }
-            }
-            if (!(routes.some(checkElementsInArr))) {
-              next('/404');
-            }
-          }}
-        >
-        </RouterView>
+        <RouterView routes={routes}></RouterView>
       </BrowserRouter>
     </QueryClientProvider>
   </React.StrictMode>,

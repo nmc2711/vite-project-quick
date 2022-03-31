@@ -1,7 +1,7 @@
 import React from 'react';
 
 type TErrorProps = {
-  active: boolean;
+  active?: boolean;
 };
 
 function ErrorPage({ active }: TErrorProps) {
