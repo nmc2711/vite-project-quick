@@ -1,8 +1,9 @@
 import { FunctionComponent, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { RouteType } from '../types/routeType';
 
-import ErrorPage from '../view/ErrorPage';
+import { RouteType } from 'types/routeType';
+
+import ErrorPage from 'view/ErrorPage';
 
 interface RouteViewProps {
   routes: Array<RouteType>;
