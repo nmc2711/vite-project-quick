@@ -8,6 +8,7 @@ import RouterView from './hooks/useRoute';
 
 import routes from './routes';
 
+import GlobalStyled from '~/style/globalStyled';
 import './index.css';
 
 const queryClient = new QueryClient({
@@ -26,6 +27,7 @@ const queryClient = new QueryClient({
 ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
+      <GlobalStyled />
       <BrowserRouter>
         <RouterView routes={routes}></RouterView>
       </BrowserRouter>

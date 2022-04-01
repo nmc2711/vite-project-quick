@@ -15,11 +15,11 @@ function LoginPage() {
     onMutate: async text => {
       await queryClient.cancelQueries("users");
 
-      const previousValue = queryClient.getQueriesData("users");
+      //const previousValue = queryClient.getQueriesData("users");
 
       queryClient.setQueryData<TUsers[]>('users', (old) => [...old!, text]);
 
-      return previousValue;
+      //return previousValue;
     },
   })
 
