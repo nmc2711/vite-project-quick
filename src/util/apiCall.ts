@@ -10,7 +10,6 @@ function apiCall() {
     baseURL: "https://gorest.co.in/public/v2",
     headers: {
       Accept: 'application/json, text/plain, */*',
-      AcessToken: '2053a5adeaa63061dae8422e980d2b7b911e7adaf22e7383ae31168039c007e2',
       Pragma: 'no-cache',
       'Cache-Control': 'no-cache',
       Expires: '-1',
