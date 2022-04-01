@@ -17,7 +17,7 @@ function LoginPage() {
 
       const previousValue = queryClient.getQueriesData("users");
 
-      queryClient.setQueryData('users', (old: any) => [...old, text]);
+      queryClient.setQueryData<TUsers[]>('users', (old) => [...old!, text]);
 
       return previousValue;
     },
@@ -32,7 +32,7 @@ function LoginPage() {
         return <div key={item.id}>{item.id}</div>
       })}
       <button onClick={() => addMutaion.mutate({
-        id: 9999,
+        id: Math.floor(Math.random() * 1000),
         name: 'sanghan',
         email: 'nmc2711@naver.com',
         gender: 'm',
