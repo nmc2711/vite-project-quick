@@ -1,9 +1,9 @@
 import React from 'react';
 import { RouteType } from '../types/routeType';
 
-const MainPage = React.lazy(() => import('@/App'));
-const LoginPage = React.lazy(() => import('@/view/LoginPage'));
-const ErrorPage = React.lazy(() => import('@/view/LoginPage'));
+const MainPage = React.lazy(() => import('~/App'));
+const LoginPage = React.lazy(() => import('~/view/LoginPage'));
+const ErrorPage = React.lazy(() => import('~/view/LoginPage'));
 
 const routes: Array<RouteType> = [
   {
