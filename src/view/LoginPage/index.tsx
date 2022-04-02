@@ -6,8 +6,10 @@ import { TUsers } from '~/types/api/users';
 import apiCall from '~/util/apiCall';
 
 // toolkit
-import { useAppDispatch, useAppSelector } from '~/toolkit/hooks';
+import { useAppDispatch, useAppSelector } from '~/util/toolkit/hooks';
 import { changeMyInfo } from '~/features/myInfo';
+
+import Button from '~/components/Button';
 
 function LoginPage() {
   const dispatch = useAppDispatch();
@@ -54,6 +56,12 @@ function LoginPage() {
         <p>{myInfo.age || ''}</p>
         <p>{myInfo.gender || ''}</p>
       </div>
+      <Button
+        contentWidth="200px"
+        contentHeight="40px"
+      >
+        버튼테스트
+      </Button>
     </div>
   );
 }

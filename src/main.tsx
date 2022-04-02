@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Provider } from "react-redux";
-import { store } from '~/toolkit/store';
+import { store } from '~/util/toolkit/store';
 
 import RouterView from './hooks/useRoute';
 
