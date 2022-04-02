@@ -10,6 +10,7 @@ import { useAppDispatch, useAppSelector } from '~/util/toolkit/hooks';
 import { changeMyInfo } from '~/features/myInfo';
 
 import Button from '~/components/Button';
+import Radio from '~/components/Radio';
 
 function LoginPage() {
   const dispatch = useAppDispatch();
@@ -23,16 +24,16 @@ function LoginPage() {
   const addMutaion = useMutation((text: TUsers) => post("users", text), {
     onMutate: async text => {
       await queryClient.cancelQueries("users");
-
       //const previousValue = queryClient.getQueriesData("users");
-
       queryClient.setQueryData<TUsers[]>('users', (old) => [...old!, text]);
-
       //return previousValue;
     },
+    onSuccess: async text => {
+    },
+    onError: async err => {
+      alert(err);
+    }
   })
-
-  console.log(data)
 
   return (
     <div>
@@ -62,6 +63,7 @@ function LoginPage() {
       >
         버튼테스트
       </Button>
+      <Radio />
     </div>
   );
 }

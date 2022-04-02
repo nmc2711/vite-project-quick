@@ -9,9 +9,7 @@ interface TButton extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 function Button(props: TButton) {
   return (
-    <Btn
-      {...props}
-    >
+    <Btn {...props}>
       {props.children}
     </Btn>
   );
