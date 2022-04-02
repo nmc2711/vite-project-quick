@@ -1,15 +1,21 @@
-import { InputHTMLAttributes } from 'react';
-import { RadioInput } from './styled';
+import { InputHTMLAttributes, ReactNode } from 'react';
 
-interface TRadio extends InputHTMLAttributes<HTMLInputElement> {
+import Radio from './radio';
+
+import { Label } from './styled';
+
+interface TRadioLabel extends InputHTMLAttributes<HTMLInputElement> {
+  children?: ReactNode | ReactNode[];
   iconSize?: string;
-};
+}
 
-function Radio(props: TRadio) {
+function RadioLabel(props: TRadioLabel) {
+  const { children, ...other} = props;
   return (
-    <RadioInput>
-            
-    </RadioInput>
+    <Label isDisabled={props.disabled}>
+      <Radio {...other} />
+      <span>{children}</span>
+    </Label>
   );
 }
-export default Radio;
+export default RadioLabel;

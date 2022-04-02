@@ -10,7 +10,7 @@ import { useAppDispatch, useAppSelector } from '~/util/toolkit/hooks';
 import { changeMyInfo } from '~/features/myInfo';
 
 import Button from '~/components/Button';
-import Radio from '~/components/Radio';
+import RadioLabel from '~/components/Radio';
 
 function LoginPage() {
   const dispatch = useAppDispatch();
@@ -18,6 +18,8 @@ function LoginPage() {
 
   const { get, post } = apiCall();
   const queryClient = useQueryClient();
+
+  const [radio, setRadio] = useState(0);
 
   const { data } = useQuery<TUsers[], Error>("users", () => get('users', { id: 1230 }));
 
@@ -34,7 +36,6 @@ function LoginPage() {
       alert(err);
     }
   })
-
   return (
     <div>
       로그인 페이지
@@ -63,7 +64,19 @@ function LoginPage() {
       >
         버튼테스트
       </Button>
-      <Radio />
+      {[1, 2, 3].map((item, key) => {
+        return (
+          <RadioLabel
+            name="radio"
+            value={key}
+            checked={key === radio}
+            onChange={() => setRadio(key)}
+            key={`라디오 버튼` + key}
+          >
+            <span>라디오 버튼{key + 1}</span>
+          </RadioLabel>
+        );
+      })}
     </div>
   );
 }
