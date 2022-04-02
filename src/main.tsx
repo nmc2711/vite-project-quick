@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { Provider } from "react-redux";
+import { store } from '~/toolkit/store';
 
 import RouterView from './hooks/useRoute';
 
@@ -26,12 +28,14 @@ const queryClient = new QueryClient({
 
 ReactDOM.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <GlobalStyled />
-      <BrowserRouter>
-        <RouterView routes={routes}></RouterView>
-      </BrowserRouter>
-    </QueryClientProvider>
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <GlobalStyled />
+        <BrowserRouter>
+          <RouterView routes={routes}></RouterView>
+        </BrowserRouter>
+      </QueryClientProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 )

@@ -5,7 +5,14 @@ import { TUsers } from '~/types/api/users';
 
 import apiCall from '~/util/apiCall';
 
+// toolkit
+import { useAppDispatch, useAppSelector } from '~/toolkit/hooks';
+import { changeMyInfo } from '~/features/myInfo';
+
 function LoginPage() {
+  const dispatch = useAppDispatch();
+  const { myInfo } = useAppSelector((state) => state.myInfo);
+
   const { get, post } = apiCall();
   const queryClient = useQueryClient();
 
@@ -38,6 +45,15 @@ function LoginPage() {
         gender: 'm',
         status: 'on',
       })}>유저 생성</button>
+
+      <button onClick={() => dispatch(changeMyInfo({ name: '황상한', age: 29, gender: 'm' }))}>
+        전역 상태 바꿔 보기
+      </button>
+      <div>
+        <p>{myInfo.name || ''}</p>
+        <p>{myInfo.age || ''}</p>
+        <p>{myInfo.gender || ''}</p>
+      </div>
     </div>
   );
 }
