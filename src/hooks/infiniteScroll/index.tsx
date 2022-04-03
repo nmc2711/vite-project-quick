@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, ReactNode } from 'react';
 import useInfiniteScroll from './useInfiniteScroll';
+import useDebounce from '../useDebounce';
 
 type TInfiniteScroll = {
   rootMargin?: string;
@@ -25,10 +26,11 @@ const InfiniteScroll = forwardRef<HTMLDivElement, TInfiniteScroll>(({
   });
   
   const isVisible = !!entry?.isIntersecting;
+  const debouncedValue = useDebounce<boolean>(isVisible, 500);
   
   useEffect(() => {
     if (callback && isVisible) callback();
-  }, [isVisible]);
+  }, [debouncedValue]);
 
   return (
     <div ref={ref}>{children}</div>

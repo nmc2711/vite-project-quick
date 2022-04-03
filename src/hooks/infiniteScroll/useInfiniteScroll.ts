@@ -17,7 +17,7 @@ function useInfiniteScroll({ contentRef, entryProps }: TUseInfiniteScroll): TEnt
   const { 
     threshold = 0,
     root = null,
-    rootMargin = '0px',
+    rootMargin = '0%',
     freezeOnceVisible = false,
   } = entryProps;
     
