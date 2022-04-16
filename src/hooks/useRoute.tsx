@@ -10,7 +10,6 @@ interface RouteViewProps {
 };
 
 const RouterView: FunctionComponent<RouteViewProps> = ({ routes }) => {
-
   return (
     <Suspense fallback={<h1>로딩중입니다...</h1>}>
       <Routes>

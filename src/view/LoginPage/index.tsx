@@ -21,7 +21,7 @@ function LoginPage() {
 
   const [radio, setRadio] = useState(0);
 
-  const { data } = useQuery<TUsers[], Error>(["users", radio], () => get('users', { id: 1230 }));
+  const { data } = useQuery<TUsers[], Error>("users", () => get('users', { id: 1230 }));
 
   const addMutaion = useMutation((text: TUsers) => post("users", text), {
     onMutate: async text => {
