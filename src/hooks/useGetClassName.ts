@@ -3,7 +3,7 @@ import { isObject, isString } from 'lodash';
 function useGetClassName(...args: unknown[]) {
   const className: string[] = [];
 
-  args.forEach((item: any) => {
+  args.forEach((item) => {
     if (isString(item)) {
       className.push(item);
     } else if (isObject(item)) {
