@@ -16,3 +16,19 @@ export function delay(ms: number) {
 }
 
 export const delayRun = (fn: Function) => setTimeout(fn);
+
+export function objectPick<O, T extends keyof O>(obj: O, keys: T[], omitUndefined = false) {
+  return keys.reduce((n, k) => {
+    if (k in obj) {
+      if (!omitUndefined || obj[k] !== undefined)
+        n[k] = obj[k]
+    }
+    return n
+  }, {} as Pick<O, T>)
+}
+
+export function hasOwnProperty<T>(obj: T, v: PropertyKey) {
+  if (obj == null)
+    return false
+  return Object.prototype.hasOwnProperty.call(obj, v)
+}
