@@ -1,3 +1,4 @@
+import { produce } from 'immer';
 
 export type Unpack<T> = T extends Promise<infer U> ? U : T;
 
@@ -31,4 +32,19 @@ export function hasOwnProperty<T>(obj: T, v: PropertyKey) {
   if (obj == null)
     return false
   return Object.prototype.hasOwnProperty.call(obj, v)
+}
+
+// arr gliding
+export const pushedArr = (initialArr, nextArr) => {
+  const nextItem = produce(initialArr, draft => {
+    draft.push(nextArr);
+  });
+  return nextItem;
+}
+
+export const splicedArr = (initialArr, selectedKey) => {
+  const nextItem = produce(initialArr, draft => {
+    draft.splice(selectedKey, 1);
+  });
+  return nextItem;
 }
