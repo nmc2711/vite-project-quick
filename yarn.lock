@@ -1334,6 +1334,11 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
+"@juggle/resize-observer@^3.3.1":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.3.1.tgz#b50a781709c81e10701004214340f25475a171a0"
+  integrity sha512-zMM9Ds+SawiUkakS7y94Ymqx+S0ORzpG3frZirN3l+UlXUmSUR7hF4wxCVqW+ei94JzV5kt0uXBcoOEAuiydrw==
+
 "@originjs/vite-plugin-commonjs@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@originjs/vite-plugin-commonjs/-/vite-plugin-commonjs-1.0.3.tgz#2e3fb11ec78847da9422b79c103953f94d667f09"
