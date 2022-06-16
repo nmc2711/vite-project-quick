@@ -32,3 +32,10 @@ export function hasOwnProperty<T>(obj: T, v: PropertyKey) {
     return false
   return Object.prototype.hasOwnProperty.call(obj, v)
 }
+
+export function isInstance<T extends new (...args: any[]) => any>(
+  value: any,
+  ctor: T
+): value is InstanceType<T> {
+  return value instanceof ctor;
+}
