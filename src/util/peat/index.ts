@@ -1,3 +1,4 @@
+import { produce } from 'immer';
 
 export type Unpack<T> = T extends Promise<infer U> ? U : T;
 
@@ -38,4 +39,18 @@ export function isInstance<T extends new (...args: any[]) => any>(
   ctor: T
 ): value is InstanceType<T> {
   return value instanceof ctor;
+}
+// arr gliding
+export const pushedArr = (initialArr, nextArr) => {
+  const nextItem = produce(initialArr, draft => {
+    draft.push(nextArr);
+  });
+  return nextItem;
+}
+
+export const splicedArr = (initialArr, selectedKey) => {
+  const nextItem = produce(initialArr, draft => {
+    draft.splice(selectedKey, 1);
+  });
+  return nextItem;
 }
