@@ -46,6 +46,15 @@ export function isInstance<T extends new (...args: any[]) => any>(
 ): value is InstanceType<T> {
   return value instanceof ctor;
 }
+
+export function isNotNull<T>(x: T): x is Exclude<T, null> {
+  return x !== null;
+}
+
+export function isNotUndefined<T>(x: T): x is Exclude<T, undefined> {
+  return x !== undefined;
+}
+
 // arr gliding
 export const pushedArr = (initialArr, nextArr) => {
   const nextItem = produce(initialArr, draft => {
