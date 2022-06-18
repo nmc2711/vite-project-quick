@@ -16,6 +16,12 @@ export function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+export function rawType(value: any) {
+  return Object.prototype.toString.call(value).slice(8, -1);
+}
+
+export default rawType;
+
 export const delayRun = (fn: Function) => setTimeout(fn);
 
 export function objectPick<O, T extends keyof O>(obj: O, keys: T[], omitUndefined = false) {
