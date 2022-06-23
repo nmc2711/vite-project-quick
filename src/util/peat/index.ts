@@ -74,3 +74,19 @@ export function diff(from: Date, to: Date): number {
   const timeDiff = Math.abs(to.getTime() - from.getTime());
   return Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
 }
+
+export async function measureTimeMillis<T>(block: () => T | Promise<T>) {
+  const start = Date.now()
+  await block()
+  return Date.now() - start
+}
+
+export async function measureAndGetResult<T>(
+  block: () => T | Promise<T>,
+  onTime: (millis: number) => any
+) {
+  const start = Date.now()
+  const result = await block()
+  onTime(Date.now() - start)
+  return result
+}
