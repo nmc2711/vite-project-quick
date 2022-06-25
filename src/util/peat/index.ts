@@ -90,3 +90,13 @@ export async function measureAndGetResult<T>(
   onTime(Date.now() - start)
   return result
 }
+
+export function isScrollbarVisible(el: { scrollHeight: number, clientHeight: number }) {
+  return el.scrollHeight > el.clientHeight
+}
+
+export function scrollDistanceToBottom(el: { scrollTop: number, clientHeight: number, scrollHeight: number }) {
+  const { scrollTop, clientHeight, scrollHeight } = el
+
+  return scrollHeight - scrollTop - clientHeight
+}
