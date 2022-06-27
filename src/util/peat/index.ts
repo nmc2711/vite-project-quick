@@ -106,3 +106,9 @@ export function sleep(ms: number) {
     setTimeout(resolve, ms);
   });
 }
+
+export function isEmpty(val: any): boolean {
+  if (val === null || val === undefined || val === "" || val === Number.NaN)
+    return true;
+  else return false;
+}
