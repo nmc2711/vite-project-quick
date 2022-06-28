@@ -112,3 +112,7 @@ export function isEmpty(val: any): boolean {
     return true;
   else return false;
 }
+
+export const trimSpaces = (s: string): string => {
+  return s.trim().replace(/\s+/g, ' ');
+}
