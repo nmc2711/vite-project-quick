@@ -116,3 +116,5 @@ export function isEmpty(val: any): boolean {
 export const trimSpaces = (s: string): string => {
   return s.trim().replace(/\s+/g, ' ');
 }
+
+export const average = (arr: number[]) => arr.reduce((p, c) => p + c, 0) / arr.length
