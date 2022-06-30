@@ -118,3 +118,5 @@ export const trimSpaces = (s: string): string => {
 }
 
 export const average = (arr: number[]) => arr.reduce((p, c) => p + c, 0) / arr.length
+
+export type IsTuple<T extends any[]> = number extends T['length'] ? false : true;
