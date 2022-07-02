@@ -120,3 +120,16 @@ export const trimSpaces = (s: string): string => {
 export const average = (arr: number[]) => arr.reduce((p, c) => p + c, 0) / arr.length
 
 export type IsTuple<T extends any[]> = number extends T['length'] ? false : true;
+
+export class Deferred<T> {
+  promise: Promise<T>;
+  reject!: (reason?: any) => void;
+  resolve!: (value: T | PromiseLike<T>) => void;
+
+  constructor() {
+    this.promise = new Promise<T>((resolve, reject) => {
+      this.resolve = resolve;
+      this.reject = reject;
+    });
+  }
+}
